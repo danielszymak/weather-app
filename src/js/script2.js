@@ -3,16 +3,18 @@ var changeCity = document.getElementById("changeDefaultCity").addEventListener('
 var removeCity = document.getElementById("removeDefaultCity").addEventListener('click', removeDefaultCity);
 var autoloc = document.getElementById("autolocalization").addEventListener('change', ifAutolocalization);
 
-//var changeSettings = document.getElementById("settingsIcon").addEventListener('click', changeSetting);
-import {searchedLatDef, searchedLonDef} from './searchDef.js'
+var changeSettings = document.getElementById("settingsIcon").addEventListener('click', changeSetting);
+
 
 function changeDefaultCity(){
   if (typeof(Storage) !== "undefined"){
     let city = document.getElementById("putDefaultCity").value;
     if(city!=""){
-      localStorage.setItem("searchedLatDef", searchedLatDef);
-      localStorage.setItem("searchedLonDef", searchedLonDef);
-      localStorage.setItem("city", city);
+      /* 
+      localStorage.setItem("searchedLat", latitude);
+      localStorage.setItem("searchedLon", longitude);
+      */ 
+    localStorage.setItem("city", city);
     document.getElementById("currentDefaultCity").innerHTML=city;
     }
   }
@@ -23,9 +25,7 @@ function changeDefaultCity(){
 
 function removeDefaultCity(){
   if (typeof(Storage) !== "undefined"){
-    localStorage.removeItem("city");    
-    localStorage.removeItem("searchedLatDef");
-    localStorage.removeItem("searchedLonDef");
+    localStorage.removeItem("city");
     document.getElementById("currentDefaultCity").style.fontWeight = "normal";
     document.getElementById("currentDefaultCity").innerHTML="Nie wybrano";
     document.getElementById("putDefaultCity").value = "";
@@ -52,7 +52,7 @@ function ifAutolocalization(){
     }
   }
 }
-/*
+
 function changeSetting(){
   if(document.querySelector(".dropdown-content").style.display=="none"){
     document.querySelector(".dropdown-content").style.display="block";
@@ -60,4 +60,4 @@ function changeSetting(){
   else{
     document.querySelector(".dropdown-content").style.display="none";
   }
-}*/
+}
