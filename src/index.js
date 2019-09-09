@@ -1,8 +1,9 @@
 import './css/style.css';
 import './js/search.js';
+import './js/searchDef.js';
 import './js/voice.js';
-//import './js/script2.js';
-//import './js/isStorage.js';
+import './js/script2.js';
+import './js/isStorage.js';
 
 const axios = require('axios');
 const API_KEY = '76d4597073b97b1d63fb3d8ec724ef57';
@@ -13,7 +14,11 @@ let lat;
 //longitude
 let long;
 
-
+//Jeśli wybrana geolokalizacja
+/*
+if ((typeof(Storage) !== "undefined")&&(localStorage.getItem("autolocalization") !== null)){
+    
+}*/
 // Geolokalizacja
      if ('geolocation' in navigator) {
          console.log('geolocation available');
@@ -133,13 +138,6 @@ for (let i = 0; i < arr_days.length; i++) {
          document.querySelector('.weatherPresentation').style.position= 'fixed';
          document.getElementById('otherCity').style.display='block';
          document.getElementById('settings').style.display='grid';
-         if (document.querySelector('.precipitation').textContent == '0.0 mm/h ') {
-             document.querySelector('.weatherPresentation').style.backgroundImage = 'url(./src/photos/slonecznapogoda2.jpg)';
-             document.querySelector('.weatherPresentation').style.color = 'black';
-         } else if (document.querySelector('.precipitation').textContent != '0.0 mm/h ') {
-             document.querySelector('.weatherPresentation').style.backgroundImage = 'url(./src/photos/deszcz1.jpg)';
-             document.querySelector('.weatherPresentation').style.color = 'white';
-         }
      }
      
      var button2 = document.getElementById("weatherHourTitle").addEventListener('click', button2Click);
@@ -196,6 +194,5 @@ for (let i = 0; i < arr_days.length; i++) {
         document.getElementById('settings').style.height='30px';
         document.getElementById('settings').style.border="0"
 }
-
 
 

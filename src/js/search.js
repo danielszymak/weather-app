@@ -32,6 +32,10 @@ function displayMatches() {
     })
 }
 
+export {
+    searchedLat, searchedLon
+};
+
 const searchInput = document.getElementById('putCity');
 const suggestions = document.querySelector('.suggestions');
 
